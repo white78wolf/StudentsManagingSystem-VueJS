@@ -1,0 +1,29 @@
+﻿.row h2 {
+    margin-left: 0.5em;
+}
+
+.alert ul li {
+    list-style: none;
+}
+
+i.icon-pencil:hover, i.icon-user-times:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.btn-group {
+    margin-bottom: 1em;
+}
+
+#error-message p {
+    color: maroon;
+}
+
+table thead tr th a {
+    color: #333;
+}
+
+table thead tr th a:hover {
+    cursor: pointer;
+    text-decoration: none;
+}

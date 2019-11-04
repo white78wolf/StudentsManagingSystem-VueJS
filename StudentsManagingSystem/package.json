@@ -1,0 +1,23 @@
+{
+  "name": "studentsmanagingsystem",
+  "version": "1.0.0",
+  "description": "Test task for junior developer position",
+  "main": "./wwwroot/scripts/script.js",
+  "scripts": {
+    "build": "webpack -p",
+    "watch": "webpack --watch"
+  },
+  "author": "Andrey Tsepkov",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5"
+  },
+  "dependencies": {}
+}
