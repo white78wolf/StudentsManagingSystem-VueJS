@@ -145,7 +145,7 @@ var app = new Vue({
         },
 
         deleteStudent: function (id) {
-            // getting an index of deleting record
+            // getting an index of a record which will be deleted
             var idxOfRecord = this.studentsList.indexOf(this.studentsList.find(student => student.id === id));
             axios
                 .delete('api/delete/' + id)
@@ -166,7 +166,7 @@ var app = new Vue({
                 this.errors = [];
         }
     },
-    // one of lifecycle's hooks
+    // one of lifecycle's hooks - when app is mounting to index.html - to query all students' list
     mounted() {
         this.getStudents();
     }
