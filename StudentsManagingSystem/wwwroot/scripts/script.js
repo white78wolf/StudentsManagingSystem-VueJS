@@ -9,11 +9,11 @@ var app = new Vue({
         return {
             form: {                
                 id: 0,
-                uniqId: "",
-                name: "",
+                uniqId:     "",
+                name:       "",
                 middleName: "",
-                lastName: "",
-                gender: ""
+                lastName:   "",
+                gender:     ""
             },
             studentsList: [],
             errors: [],
@@ -75,11 +75,11 @@ var app = new Vue({
         createStudent: function () {
             axios
                 .post('api/add/', {
-                    uniqId: this.form.uniqId,
-                    name: this.form.name,
+                    uniqId:     this.form.uniqId,
+                    name:       this.form.name,
                     middleName: this.form.middleName,
-                    lastName: this.form.lastName,
-                    gender: this.form.gender
+                    lastName:   this.form.lastName,
+                    gender:     this.form.gender
                 })
                 .then(response => this.studentsList.push(response.data))
                 .catch(e => {
@@ -90,12 +90,12 @@ var app = new Vue({
         editStudent: function () {
             axios.
                 put('api/update/', {
-                    id: this.form.id,
-                    uniqId: this.form.uniqId,
-                    name: this.form.name,
+                    id:         this.form.id,
+                    uniqId:     this.form.uniqId,
+                    name:       this.form.name,
                     middleName: this.form.middleName,
-                    lastName: this.form.lastName,
-                    gender: this.form.gender
+                    lastName:   this.form.lastName,
+                    gender:     this.form.gender
                 })
                 .then(response => this.changeLine(response.data))
                 .catch(e => {
@@ -158,11 +158,11 @@ var app = new Vue({
 
         reset: function () {
             this.form.id = 0,
-                this.form.uniqId = "",
-                this.form.name = "",
+                this.form.uniqId     = "",
+                this.form.name       = "",
                 this.form.middleName = "",
-                this.form.lastName = "",
-                this.form.gender = "",
+                this.form.lastName   = "",
+                this.form.gender     = "",
                 this.errors = [];
         }
     },
