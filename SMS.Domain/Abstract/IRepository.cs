@@ -9,8 +9,7 @@ namespace SMS.Domain.Abstract
         T Get(int id);
         IEnumerable<T> Find(Func<T, bool> predicate);
         void Create(T item);
-        void Update(T item);
-        //void Delete(int id);
+        void Update(T item);        
         void Delete(T item);
     }
 }
