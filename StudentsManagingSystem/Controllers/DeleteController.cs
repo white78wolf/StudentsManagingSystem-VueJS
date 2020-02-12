@@ -24,7 +24,7 @@ namespace StudentsManagingSystem.Controllers
             {
                 return NotFound();
             }
-            _repository.DeleteStudent(id);
+            _repository.DeleteStudent(student);
             return Ok(student);
         }
     }

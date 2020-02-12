@@ -7,6 +7,6 @@ namespace SMS.Domain.Abstract
     {
         IEnumerable<Student> Students { get; }
         void SaveStudent(Student student);
-        Student DeleteStudent(int Id);
+        Student DeleteStudent(Student student);
     }
 }

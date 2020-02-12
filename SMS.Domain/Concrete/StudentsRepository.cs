@@ -34,15 +34,14 @@ namespace SMS.Domain.Concrete
             _context.SaveChanges();
         }
         
-        public Student DeleteStudent(int Id)
-        {
-            Student dbEntry = _context.Students.Find(Id);
-            if (dbEntry != null)
+        public Student DeleteStudent(Student student)
+        {            
+            if (student != null)
             {
-                _context.Students.Remove(dbEntry);
+                _context.Students.Remove(student);
                 _context.SaveChanges();
             }
-            return dbEntry;
+            return student;
         }        
     }
 }
