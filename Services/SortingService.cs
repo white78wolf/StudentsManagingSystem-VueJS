@@ -7,7 +7,7 @@ namespace Services
 {
     public static class SortingService
     {
-        public static IEnumerable<Student> SortBy(string parameter, IStudentsRepository repository)
+        public static IEnumerable<Student> SortBy(string parameter, IRepository repository)
         {
             var result = new List<Student>();
 

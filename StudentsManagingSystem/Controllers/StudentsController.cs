@@ -8,9 +8,9 @@ namespace StudentsManagingSystem.Controllers
     [Route("api/[controller]")]    
     public class StudentsController : Controller
     {        
-        private IStudentsRepository _repository;
+        private IRepository _repository;
 
-        public StudentsController(IStudentsRepository repository)
+        public StudentsController(IRepository repository)
         {
             _repository = repository;
             // initializing the table by fake students

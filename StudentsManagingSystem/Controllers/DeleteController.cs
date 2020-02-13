@@ -9,9 +9,9 @@ namespace StudentsManagingSystem.Controllers
     [ApiController]
     public class DeleteController : ControllerBase
     {
-        private IStudentsRepository _repository;
+        private IRepository _repository;
 
-        public DeleteController(IStudentsRepository repository)
+        public DeleteController(IRepository repository)
         {
             _repository = repository;
         }

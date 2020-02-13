@@ -11,9 +11,9 @@ namespace StudentsManagingSystem.Controllers
     [ApiController]
     public class FilterController : ControllerBase
     {
-        private IStudentsRepository _repository;        
+        private IRepository _repository;        
 
-        public FilterController(IStudentsRepository repository)
+        public FilterController(IRepository repository)
         {
             _repository = repository;
         }

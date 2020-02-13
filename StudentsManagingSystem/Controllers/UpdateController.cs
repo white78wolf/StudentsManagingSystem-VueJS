@@ -10,9 +10,9 @@ namespace StudentsManagingSystem.Controllers
     [ApiController]
     public class UpdateController : ControllerBase
     {
-        private IStudentsRepository _repository;
+        private IRepository _repository;
 
-        public UpdateController(IStudentsRepository repository)
+        public UpdateController(IRepository repository)
         {
             _repository = repository;
         }

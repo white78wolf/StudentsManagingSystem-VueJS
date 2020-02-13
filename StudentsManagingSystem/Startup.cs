@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SMS.Domain.Abstract;
 using SMS.Domain.Concrete;
+using SMS.Domain.Entities;
 
 namespace StudentsManagingSystem
 {
@@ -20,7 +21,7 @@ namespace StudentsManagingSystem
         {            
             string connection = Configuration.GetConnectionString("DefaultConnection");                    
             services.AddDbContext<StudentsContext>(options => options.UseSqlServer(connection));
-            services.AddScoped<IStudentsRepository, StudentsRepository>();
+            services.AddScoped<IRepository<Student>, StudentsRepository>();
             services.AddMvc();
         }
 

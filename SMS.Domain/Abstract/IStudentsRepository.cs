@@ -3,7 +3,7 @@ using SMS.Domain.Entities;
 
 namespace SMS.Domain.Abstract
 {
-    public interface IStudentsRepository
+    public interface IRepository
     {
         IEnumerable<Student> Students { get; }
         void SaveStudent(Student student);

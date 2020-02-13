@@ -9,9 +9,9 @@ namespace StudentsManagingSystem.Controllers
     [ApiController]
     public class AddController : ControllerBase
     {
-        private IStudentsRepository _repository;
+        private IRepository _repository;
 
-        public AddController(IStudentsRepository repository)
+        public AddController(IRepository repository)
         {
             _repository = repository;
         }
