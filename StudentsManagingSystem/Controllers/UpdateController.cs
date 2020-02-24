@@ -10,11 +10,13 @@ namespace StudentsManagingSystem.Controllers
     [ApiController]
     public class UpdateController : ControllerBase
     {
-        private IRepository _repository;
+        //private IRepository _repository;
+        IUnitOfWork _uow;
 
-        public UpdateController(IRepository repository)
+        public UpdateController(IUnitOfWork uow)
         {
-            _repository = repository;
+            //_repository = repository;
+            _uow = uow;
         }
 
         [HttpPut]
@@ -25,12 +27,12 @@ namespace StudentsManagingSystem.Controllers
                 return BadRequest();
             }
 
-            if (!_repository.Students.Any(x => x.Id == student.Id))
+            if (_uow.Students.Find(x => x.Id == student.Id) == null)
             {
                 return NotFound();
             }
 
-            if (!UniqIdService.IsChangedAndUniq(student, _repository))
+            if (!UniqIdService.IsChangedAndUniq(student, _uow.Students))
             {
                 ModelState.AddModelError("", "Такой идентификатор уже есть");
             }
@@ -38,7 +40,7 @@ namespace StudentsManagingSystem.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            _repository.SaveStudent(student);
+            //_repository.SaveStudent(student);
 
             return Ok(student);
         }
