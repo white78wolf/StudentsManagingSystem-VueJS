@@ -9,11 +9,11 @@ namespace StudentsManagingSystem.Controllers
     [ApiController]
     public class AddController : ControllerBase
     {
-        private IRepository _repository;
+        private IUnitOfWork _uow;
 
-        public AddController(IRepository repository)
+        public AddController(IUnitOfWork uow)
         {
-            _repository = repository;
+            _uow = uow;
         }
 
         [HttpPost]
@@ -25,15 +25,17 @@ namespace StudentsManagingSystem.Controllers
                 return BadRequest();
             }
 
-            if (!UniqIdService.IsUniq(student, _repository))
+            if (!UniqIdService.IsUniq(student, _uow.Students))
             {
                 ModelState.AddModelError("", "Такой идентификатор уже есть");
             }
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            
+            _uow.Students.Create(student);
+            _uow.Save();
 
-            _repository.SaveStudent(student);
             return Ok(student);
         }
     }

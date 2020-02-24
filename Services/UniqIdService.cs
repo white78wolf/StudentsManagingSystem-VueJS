@@ -1,23 +1,24 @@
 ﻿using SMS.Domain.Abstract;
-using System.Linq;
+using SMS.Domain.Entities;
 
 namespace Services
 {
     public static class UniqIdService
     {
-        public static bool IsUniq(IStudent student, IRepository repository)
+        public static bool IsUniq(Student student, IRepository<Student> repository)
         {            
             // checking is uniqid existing already
-            return !(repository.Students.FirstOrDefault(x => x.UniqId == student.UniqId) == null) 
+            return student.UniqId != "" && !(repository.Find(x => x.UniqId == student.UniqId) == null) 
                 ? false 
                 : true;
         }
 
-        public static bool IsChangedAndUniq(IStudent student, IRepository repository)
+        public static bool IsChangedAndUniq(Student student, IRepository<Student> repository)
         {            
             // checking has uniqid changed and then checking it's existence in db
-            return (repository.Students.First(x => x.Id == student.Id).UniqId != student.UniqId)
-                && !(repository.Students.FirstOrDefault(x => x.UniqId == student.UniqId) == null)
+            return (repository.Get(student.Id).UniqId != student.UniqId)
+                && student.UniqId != "" 
+                && !(repository.Find(x => x.UniqId == student.UniqId) == null)
                 ? false
                 : true;
         }
