@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using SMS.Domain.Abstract;
 using SMS.Domain.Entities;
 namespace StudentsManagingSystem.Controllers
@@ -14,12 +15,13 @@ namespace StudentsManagingSystem.Controllers
             _uow = uow;
 
             // initializing the table by fake students
-            if (_uow.Students == null)
+            if (!_uow.Students.GetAll().Any())
             {                
                 _uow.Students.Create(new Student { Name = "Роман",     LastName = "Ойра-Ойра", Gender = "male"   });
                 _uow.Students.Create(new Student { Name = "Александр", LastName = "Привалов",  Gender = "male"   });
                 _uow.Students.Create(new Student { Name = "Ольга",     LastName = "Онучкина",  Gender = "female" });
-                _uow.Students.Create(new Student { Name = "Стелла",    LastName = "Иванова",   Gender = "female" }); 
+                _uow.Students.Create(new Student { Name = "Стелла",    LastName = "Иванова",   Gender = "female" });
+                _uow.Save();
             }
         }        
 
