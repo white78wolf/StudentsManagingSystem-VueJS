@@ -10,13 +10,11 @@ namespace StudentsManagingSystem.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class FilterController : ControllerBase
-    {
-        //private IRepository _repository;
+    {        
         private IUnitOfWork _uow;
 
         public FilterController(IUnitOfWork uow)
-        {
-            //_repository = repository;
+        {            
             _uow = uow;
         }
 
