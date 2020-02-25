@@ -9,22 +9,25 @@ namespace StudentsManagingSystem.Controllers
     [ApiController]
     public class DeleteController : ControllerBase
     {
-        private IRepository _repository;
+        //private IRepository _repository;
+        private IUnitOfWork _uow;
 
-        public DeleteController(IRepository repository)
+        public DeleteController(IUnitOfWork uow)
         {
-            _repository = repository;
+            //_repository = repository;
+            _uow = uow;
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            Student student = _repository.Students.FirstOrDefault(x => x.Id == id);
+            Student student = _uow.Students.Get(id);
             if (student == null)
             {
                 return NotFound();
             }
-            _repository.DeleteStudent(student);
+            _uow.Students.Delete(student);
+            _uow.Save();
             return Ok(student);
         }
     }
