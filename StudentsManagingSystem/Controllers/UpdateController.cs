@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SMS.Domain.Entities;
 using SMS.Domain.Abstract;
 using Services;
@@ -9,13 +8,11 @@ namespace StudentsManagingSystem.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class UpdateController : ControllerBase
-    {
-        //private IRepository _repository;
+    {        
         IUnitOfWork _uow;
 
         public UpdateController(IUnitOfWork uow)
-        {
-            //_repository = repository;
+        {            
             _uow = uow;
         }
 
@@ -38,9 +35,7 @@ namespace StudentsManagingSystem.Controllers
             }
 
             if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            //_repository.SaveStudent(student);
+                return BadRequest(ModelState);            
 
             return Ok(student);
         }
