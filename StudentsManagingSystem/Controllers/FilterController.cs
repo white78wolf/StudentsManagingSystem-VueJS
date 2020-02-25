@@ -11,22 +11,24 @@ namespace StudentsManagingSystem.Controllers
     [ApiController]
     public class FilterController : ControllerBase
     {
-        private IRepository _repository;        
+        //private IRepository _repository;
+        private IUnitOfWork _uow;
 
-        public FilterController(IRepository repository)
+        public FilterController(IUnitOfWork uow)
         {
-            _repository = repository;
+            //_repository = repository;
+            _uow = uow;
         }
 
         [HttpGet("{parameter}")]
         public IEnumerable<Student> Get(string parameter)
         {
             if (parameter == "male" || parameter == "female")
-                return _repository.Students
-                    .Where(s => s.Gender == parameter)
+                return _uow.Students
+                    .Find(s => s.Gender == parameter)
                     .ToList();
             else
-                return SortingService.SortBy(parameter, _repository);
+                return SortingService.SortBy(parameter, _uow);
         }
     }
 }
