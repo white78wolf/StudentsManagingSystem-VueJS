@@ -26,7 +26,7 @@
                     </ul>
                 </div>
 
-                <div class="col-md-3"> <!-- Right side of page - the form -->
+                <div class="col-md-3"> <!-- Left side of page - the form -->
                     <form name="studentForm">
                         <input type="hidden" v-model="form.id" />
                         <div class="form-group">
@@ -57,7 +57,7 @@
                     </form>                    
                 </div>
 
-                <div class="col-md-9"> <!-- Left side of page - the list of students -->
+                <div class="col-md-9"> <!-- Right side of page - the list of students -->
                     <h4>Пример фильтра: </h4>
                     <div class="btn-group" role="group" aria-label="..."> <!-- The example of filtering list by gender -->
                         <button type="button" class="btn btn-default" v-on:click="getStudents">Все</button>
