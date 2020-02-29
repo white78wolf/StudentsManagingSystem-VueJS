@@ -8,7 +8,7 @@ using Services;
 namespace StudentsManagingSystem.Controllers
 {
     [Route("api/[controller]")]
-    //[ApiController]
+    [ApiController]
     public class StudentsController : Controller
     {        
         private IUnitOfWork _uow;
