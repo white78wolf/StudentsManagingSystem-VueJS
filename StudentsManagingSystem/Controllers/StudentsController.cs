@@ -3,9 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using SMS.Domain.Abstract;
 using SMS.Domain.Entities;
+using Services;
+
 namespace StudentsManagingSystem.Controllers
 {
-    [Route("api/[controller]")]    
+    [Route("api/[controller]")]
+    //[ApiController]
     public class StudentsController : Controller
     {        
         private IUnitOfWork _uow;
@@ -39,6 +42,29 @@ namespace StudentsManagingSystem.Controllers
             if (student == null)
                 return NotFound();
             return new ObjectResult(student);
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody]Student student)
+        {
+            if (student == null)
+            {
+                ModelState.AddModelError("", "Не указаны данные студента");
+                return BadRequest();
+            }
+
+            if (!UniqIdService.IsUniq(student, _uow.Students))
+            {
+                ModelState.AddModelError("", "Такой идентификатор уже есть");
+            }
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _uow.Students.Create(student);
+            _uow.Save();
+
+            return Ok(student);
         }
     }
 }

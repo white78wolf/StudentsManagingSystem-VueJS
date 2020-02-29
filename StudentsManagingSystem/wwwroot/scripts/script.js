@@ -74,7 +74,7 @@ var app = new Vue({
 
         createStudent: function () {
             axios
-                .post('api/add/', {
+                .post('api/students/', {
                     uniqId:     this.form.uniqId,
                     name:       this.form.name,
                     middleName: this.form.middleName,

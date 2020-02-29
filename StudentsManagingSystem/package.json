@@ -10,14 +10,14 @@
   "author": "Andrey Tsepkov",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
     "babel-loader": "^8.0.6",
-    "css-loader": "^3.0.0",
-    "vue-loader": "^15.7.0",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5"
+    "css-loader": "^3.4.2",
+    "vue-loader": "^15.9.0",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {}
 }
