@@ -8,4 +8,5 @@ and build projects. Or use "dotnet restore" command in the directory of the solu
 If you need, uncomment 14 line in SMS.Domain/Concrete/StudentsContext.cs to apply 
 database migrations.  
 For editing client's bundle.js script use "npm install" command in StudentsManagingSystem directory, 
-then enter "npm run build" or "npm run watch" commands.
+then edit script.js in StudentsManagingSystem/wwwroot/scripts, 
+and then enter "npm run build" or "npm run watch" commands.
