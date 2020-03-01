@@ -89,7 +89,7 @@ var app = new Vue({
 
         editStudent: function () {
             axios.
-                put('api/update/', {
+                put('api/students/', {
                     id:         this.form.id,
                     uniqId:     this.form.uniqId,
                     name:       this.form.name,

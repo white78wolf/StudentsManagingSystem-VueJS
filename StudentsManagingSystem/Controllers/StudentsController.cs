@@ -66,5 +66,29 @@ namespace StudentsManagingSystem.Controllers
 
             return Ok(student);
         }
+
+        [HttpPut]
+        public IActionResult Put([FromBody]Student student)
+        {
+            if (student == null)
+            {
+                return BadRequest();
+            }
+
+            if (_uow.Students.Find(x => x.Id == student.Id) == null)
+            {
+                return NotFound();
+            }
+
+            if (!UniqIdService.IsChangedAndUniq(student, _uow.Students))
+            {
+                ModelState.AddModelError("", "Такой идентификатор уже есть");
+            }
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return Ok(student);
+        }
     }
 }
