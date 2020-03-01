@@ -90,5 +90,18 @@ namespace StudentsManagingSystem.Controllers
 
             return Ok(student);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            Student student = _uow.Students.Get(id);
+            if (student == null)
+            {
+                return NotFound();
+            }
+            _uow.Students.Delete(student);
+            _uow.Save();
+            return Ok(student);
+        }
     }
 }

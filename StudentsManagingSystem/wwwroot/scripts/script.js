@@ -148,7 +148,7 @@ var app = new Vue({
             // getting an index of a record which will be deleted
             var idxOfRecord = this.studentsList.indexOf(this.studentsList.find(student => student.id === id));
             axios
-                .delete('api/delete/' + id)
+                .delete('api/students/' + id)
                 .then(response => this.studentsList.splice(idxOfRecord, 1))
                 .catch(e => {
                     this.errors.push(e.response.data[""].toString());
