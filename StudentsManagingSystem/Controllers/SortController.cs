@@ -1,28 +1,26 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using SMS.Domain.Entities;
 using SMS.Domain.Abstract;
+using Services;
 
 namespace StudentsManagingSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FilterController : ControllerBase
-    {        
+    public class SortController : ControllerBase
+    {
         private IUnitOfWork _uow;
 
-        public FilterController(IUnitOfWork uow)
-        {            
+        public SortController(IUnitOfWork uow)
+        {
             _uow = uow;
         }
 
         [HttpGet("{parameter}")]
         public IEnumerable<Student> Get(string parameter)
-        {            
-            return _uow.Students
-                    .Find(s => s.Gender == parameter)
-                    .ToList();
+        {
+            return SortingService.SortBy(parameter, _uow);
         }
     }
 }

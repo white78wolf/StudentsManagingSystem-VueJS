@@ -74,7 +74,7 @@ var app = new Vue({
 
         sorting: function (param) {
             axios
-                .get('api/filter/' + param)
+                .get('api/sort/' + param)
                 .then(response => {
                     this.studentsList = response.data;
                 })
