@@ -59,7 +59,20 @@ var app = new Vue({
                 });            
         },      
         // common function for both filtering and sorting of incoming data
-        filterAndSorting: function (param) {
+        filtering: function (param) {
+            axios
+                .get('api/filter/' + param)
+                .then(response => {
+                    this.studentsList = response.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                    this.errored = true;
+                })
+                .finally(() => (this.loading = false));
+        },
+
+        sorting: function (param) {
             axios
                 .get('api/filter/' + param)
                 .then(response => {

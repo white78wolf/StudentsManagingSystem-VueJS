@@ -52,7 +52,7 @@
                         </div>
                         <div class="panel-body">
                             <button type="button" class="btn btn-sm btn-primary" v-on:click="submitFunc">Сохранить</button>
-                            <button type="button" class="btn btn-sm btn-primary" v-on:click="reset">Сбросить</button>
+                            <button type="button" class="btn btn-sm btn-primary" v-on:click="reset"     >Сбросить </button>
                         </div>
                     </form>                    
                 </div>
@@ -60,9 +60,9 @@
                 <div class="col-md-9"> <!-- Right side of page - the list of students -->
                     <h4>Пример фильтра: </h4>
                     <div class="btn-group" role="group" aria-label="..."> <!-- The example of filtering list by gender -->
-                        <button type="button" class="btn btn-default" v-on:click="getStudents">Все</button>
-                        <button type="button" class="btn btn-default" v-on:click="filterAndSorting('male')">Муж.</button>
-                        <button type="button" class="btn btn-default" v-on:click="filterAndSorting('female')">Жен.</button>
+                        <button type="button" class="btn btn-default" v-on:click="getStudents"        >Все</button>
+                        <button type="button" class="btn btn-default" v-on:click="filtering('male')"  >Муж.</button>
+                        <button type="button" class="btn btn-default" v-on:click="filtering('female')">Жен.</button>
                     </div>
 
                     <section id="error-message" v-if="errored"> <!-- Showing errors of downloading students list -->
@@ -76,22 +76,22 @@
                     <table class="table table-condensed table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>Уник. ID <a v-on:click="filterAndSorting('uniqid')">^</a> / <a v-on:click="filterAndSorting('uniqid_desc')">v</a></th>
-                                <th>Имя <a v-on:click="filterAndSorting('name')">^</a> / <a v-on:click="filterAndSorting('name_desc')">v</a></th>
-                                <th>Отчество <a v-on:click="filterAndSorting('middlename')">^</a> / <a v-on:click="filterAndSorting('middlename_desc')">v</a></th>
-                                <th>Фамилия <a v-on:click="filterAndSorting('lastname')">^</a> / <a v-on:click="filterAndSorting('lastname_desc')">v</a></th>
-                                <th>Пол <a v-on:click="filterAndSorting('gender')">^</a> / <a v-on:click="filterAndSorting('gender_desc')">v</a></th>
-                                <th>Действия</th>
+                                <th>Уник. ID <a v-on:click="sorting('uniqid')"    >^</a> / <a v-on:click="sorting('uniqid_desc')"    >v</a></th>
+                                <th>Имя      <a v-on:click="sorting('name')"      >^</a> / <a v-on:click="sorting('name_desc')"      >v</a></th>
+                                <th>Отчество <a v-on:click="sorting('middlename')">^</a> / <a v-on:click="sorting('middlename_desc')">v</a></th>
+                                <th>Фамилия  <a v-on:click="sorting('lastname')"  >^</a> / <a v-on:click="sorting('lastname_desc')"  >v</a></th>
+                                <th>Пол      <a v-on:click="sorting('gender')"    >^</a> / <a v-on:click="sorting('gender_desc')"    >v</a></th>
+                                <th>Действия </th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr v-for="student in studentsList" v-bind:key="student.id">
-                                <td>{{student.uniqId}}</td>
-                                <td>{{student.name}}</td>
+                                <td>{{student.uniqId}}    </td>
+                                <td>{{student.name}}      </td>
                                 <td>{{student.middleName}}</td>
-                                <td>{{student.lastName}}</td>
-                                <td>{{student.gender}}</td>
+                                <td>{{student.lastName}}  </td>
+                                <td>{{student.gender}}    </td>
                                 <td>
                                     <button type="button">
                                         <i class="icon-pencil" v-on:click="getStudent(student.id)" title="Редактировать"></i>
