@@ -47,7 +47,7 @@
                         </div>
                         <div class="form-group" data-toggle="buttons">
                             <label for="gender">Пол (обяз.):</label>
-                            муж. <input type="radio" value="male" v-model="form.gender" />
+                            муж. <input type="radio" value="male"   v-model="form.gender" />
                             жен. <input type="radio" value="female" v-model="form.gender" />
                         </div>
                         <div class="panel-body">
@@ -70,7 +70,7 @@
                     </section>
 
                     <section v-else>
-                        <div v-if="loading"><i class="icon-spinner animate-spin"></i> Loading...</div> <!-- Displaying the process of loading data -->
+                        <div v-if="loading"><i class="icon-spinner animate-spin"></i> Loading... </div> <!-- Displaying the process of loading data -->
                     </section>
 
                     <table class="table table-condensed table-striped table-bordered">
@@ -108,6 +108,6 @@
         </div>
     </div>
     
-    <script src="./dist/bundle.js"></script> <!-- The script builded by Webpack -->
+    <script src="./dist/bundle.js"></script> <!-- The script built by Webpack -->
 </body>
 </html>
