@@ -2,6 +2,7 @@
 using SMS.Domain.Abstract;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Services
 {
@@ -9,75 +10,27 @@ namespace Services
     {
         public static IEnumerable<Student> SortBy(string parameter, IUnitOfWork uow)
         {
-            var result = new List<Student>();
+            List<Student> result = new List<Student>();
 
-            switch (parameter)
+            Dictionary<string, Func<Student, object>> studprops = new Dictionary<string, Func<Student, object>>(5)
             {
-                case "name":
-                    result = uow.Students
-                        .GetAll()
-                        .OrderBy(s => s.Name)
-                        .ToList();
-                    break;
-                case "name_desc":
-                    result = uow.Students
-                        .GetAll()
-                        .OrderByDescending(s => s.Name)
-                        .ToList();
-                    break;
+                { "name",       s => s.Name     },
+                { "lastname",   s => s.LastName },
+                { "middlename", s => s.Name     },
+                { "uniqid",     s => s.Name     },
+                { "gender",     s => s.Name     }
+            };
 
-                case "lastname":
-                    result = uow.Students
-                        .GetAll()
-                        .OrderBy(s => s.LastName)
-                        .ToList();
-                    break;
-                case "lastname_desc":
-                    result = uow.Students
-                        .GetAll()
-                        .OrderByDescending(s => s.LastName)
-                        .ToList();
-                    break;
+            if (parameter.EndsWith("_desc"))
+                result = uow.Students
+                    .GetAll()
+                    .OrderByDescending(studprops[parameter.Replace("_desc", "")])
+                    .ToList();
+            else result = uow.Students
+                    .GetAll()
+                    .OrderBy(studprops[parameter])
+                    .ToList();
 
-                case "middlename":
-                    result = uow.Students
-                        .GetAll()
-                        .OrderBy(s => s.MiddleName)
-                        .ToList();
-                    break;
-                case "middlename_desc":
-                    result = uow.Students
-                        .GetAll()
-                        .OrderByDescending(s => s.MiddleName)
-                        .ToList();
-                    break;
-
-                case "uniqid":
-                    result = uow.Students
-                        .GetAll()
-                        .OrderBy(s => s.UniqId)
-                        .ToList();
-                    break;
-                case "uniqid_desc":
-                    result = uow.Students
-                        .GetAll()
-                        .OrderByDescending(s => s.UniqId)
-                        .ToList();
-                    break;
-
-                case "gender":
-                    result = uow.Students
-                        .GetAll()
-                        .OrderBy(s => s.Gender)
-                        .ToList();
-                    break;
-                case "gender_desc":
-                    result = uow.Students
-                        .GetAll()
-                        .OrderByDescending(s => s.Gender)
-                        .ToList();
-                    break;
-            }
             return result;
         }
     }
