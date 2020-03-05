@@ -19,11 +19,11 @@ namespace StudentsManagingSystem.Controllers
 
             // initializing the table by fake students
             if (!_uow.Students.GetAll().Any())
-            {                
-                _uow.Students.Create(new Student { Name = "Роман",     LastName = "Ойра-Ойра", Gender = "male"   });
-                _uow.Students.Create(new Student { Name = "Александр", LastName = "Привалов",  Gender = "male"   });
-                _uow.Students.Create(new Student { Name = "Ольга",     LastName = "Онучкина",  Gender = "female" });
-                _uow.Students.Create(new Student { Name = "Стелла",    LastName = "Иванова",   Gender = "female" });
+            {
+                _uow.Students.Create(new Student { Name = "Роман",     LastName = "Ойра-Ойра", Gender = Gender.Male   });
+                _uow.Students.Create(new Student { Name = "Александр", LastName = "Привалов",  Gender = Gender.Male   });
+                _uow.Students.Create(new Student { Name = "Ольга",     LastName = "Онучкина",  Gender = Gender.Female });
+                _uow.Students.Create(new Student { Name = "Стелла",    LastName = "Иванова",   Gender = Gender.Female });
                 _uow.Save();
             }
         }        

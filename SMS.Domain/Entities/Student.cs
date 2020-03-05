@@ -25,6 +25,12 @@ namespace SMS.Domain.Entities
 
         [MaxLength(10)]
         [Required(ErrorMessage = "Укажите пол")]
-        public string Gender { get; set; }        
+        public Gender Gender { get; set; } 
+    }
+
+    public enum Gender : byte
+    {
+        Male,
+        Female
     }
 }

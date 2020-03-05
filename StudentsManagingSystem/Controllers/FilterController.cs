@@ -18,10 +18,10 @@ namespace StudentsManagingSystem.Controllers
         }
 
         [HttpGet("{parameter}")]
-        public IEnumerable<Student> Get(string parameter)
+        public IEnumerable<Student> Get(byte parameter)
         {            
             return _uow.Students
-                    .Find(s => s.Gender == parameter)
+                    .Find(s => (byte)s.Gender == parameter)
                     .ToList();
         }
     }

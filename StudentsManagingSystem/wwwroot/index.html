@@ -61,8 +61,8 @@
                     <h4>Пример фильтра: </h4>
                     <div class="btn-group" role="group" aria-label="..."> <!-- The example of filtering list by gender -->
                         <button type="button" class="btn btn-default" v-on:click="getStudents"        >Все</button>
-                        <button type="button" class="btn btn-default" v-on:click="filtering('male')"  >Муж.</button>
-                        <button type="button" class="btn btn-default" v-on:click="filtering('female')">Жен.</button>
+                        <button type="button" class="btn btn-default" v-on:click="filtering(0)"  >Муж.</button>
+                        <button type="button" class="btn btn-default" v-on:click="filtering(1)">Жен.</button>
                     </div>
 
                     <section id="error-message" v-if="errored"> <!-- Showing errors of downloading students list -->

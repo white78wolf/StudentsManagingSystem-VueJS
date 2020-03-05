@@ -5,7 +5,7 @@ namespace SMS.Domain.Concrete
 {
     public class StudentsContext : DbContext
     {
-        public DbSet<Student> Students { get; set; }        
+        public DbSet<Student> Students { get; set; } 
 
         public StudentsContext(DbContextOptions<StudentsContext> options)
             : base(options)
@@ -15,3 +15,5 @@ namespace SMS.Domain.Concrete
         }
     }
 }
+
+// It's necessary to comment the line with EnsureCreated method when migrating
