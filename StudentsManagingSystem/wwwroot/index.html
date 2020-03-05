@@ -91,7 +91,8 @@
                                 <td>{{student.name}}      </td>
                                 <td>{{student.middleName}}</td>
                                 <td>{{student.lastName}}  </td>
-                                <td>{{student.gender}}    </td>
+                                <td v-if="student.gender==0"> муж. </td>
+                                <td v-else="student.gender==1"> жен. </td>
                                 <td>
                                     <button type="button">
                                         <i class="icon-pencil" v-on:click="getStudent(student.id)" title="Редактировать"></i>
