@@ -92,12 +92,12 @@ var app = new Vue({
                     name:       this.form.name,
                     middleName: this.form.middleName,
                     lastName:   this.form.lastName,
-                    gender:     this.form.gender
+                    gender:     parseInt(this.form.gender)
                 })
                 .then(response => this.studentsList.push(response.data))
                 .catch(e => {
                     this.errors.push(e.response.data[""].toString());
-                });
+                });            
         },
 
         editStudent: function () {

@@ -59,7 +59,7 @@ namespace StudentsManagingSystem.Controllers
             }
 
             if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+                return BadRequest(ModelState);            
 
             _uow.Students.Create(student);
             _uow.Save();

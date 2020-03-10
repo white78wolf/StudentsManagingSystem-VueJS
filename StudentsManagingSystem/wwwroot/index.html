@@ -47,8 +47,8 @@
                         </div>
                         <div class="form-group" data-toggle="buttons">
                             <label for="gender">Пол (обяз.):</label>
-                            муж. <input type="radio" value="male"   v-model="form.gender" />
-                            жен. <input type="radio" value="female" v-model="form.gender" />
+                            муж. <input type="radio" value="0"   v-model="form.gender" />
+                            жен. <input type="radio" value="1" v-model="form.gender" />
                         </div>
                         <div class="panel-body">
                             <button type="button" class="btn btn-sm btn-primary" v-on:click="submitFunc">Сохранить</button>
@@ -91,7 +91,7 @@
                                 <td>{{student.name}}      </td>
                                 <td>{{student.middleName}}</td>
                                 <td>{{student.lastName}}  </td>
-                                <td v-if="student.gender==0"> муж. </td>
+                                <td v-if  ="student.gender==0"> муж. </td>
                                 <td v-else="student.gender==1"> жен. </td>
                                 <td>
                                     <button type="button">

@@ -22,8 +22,7 @@ namespace SMS.Domain.Entities
         [MaxLength(40)]
         [Required(ErrorMessage = "Фамилия является обязательным полем")]        
         public string LastName { get; set; }
-
-        [MaxLength(10)]
+        
         [Required(ErrorMessage = "Укажите пол")]
         public Gender Gender { get; set; } 
     }
