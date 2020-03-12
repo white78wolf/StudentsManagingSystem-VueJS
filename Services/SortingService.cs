@@ -14,11 +14,11 @@ namespace Services
 
             Dictionary<string, Func<Student, object>> studprops = new Dictionary<string, Func<Student, object>>(5)
             {
-                { "name",       s => s.Name     },
-                { "lastname",   s => s.LastName },
-                { "middlename", s => s.Name     },
-                { "uniqid",     s => s.Name     },
-                { "gender",     s => s.Name     }
+                { "name",       s => s.Name       },
+                { "lastname",   s => s.LastName   },
+                { "middlename", s => s.MiddleName },
+                { "uniqid",     s => s.UniqId     },
+                { "gender",     s => s.Gender     }
             };
 
             if (parameter.EndsWith("_desc"))
