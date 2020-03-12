@@ -75,13 +75,13 @@
 
                     <table class="table table-condensed table-striped table-bordered">
                         <thead>
-                            <tr>
-                                <th>Уник. ID <a v-on:click="sorting('uniqid')"    >^</a> / <a v-on:click="sorting('uniqid_desc')"    >v</a></th>
-                                <th>Имя      <a v-on:click="sorting('name')"      >^</a> / <a v-on:click="sorting('name_desc')"      >v</a></th>
-                                <th>Отчество <a v-on:click="sorting('middlename')">^</a> / <a v-on:click="sorting('middlename_desc')">v</a></th>
-                                <th>Фамилия  <a v-on:click="sorting('lastname')"  >^</a> / <a v-on:click="sorting('lastname_desc')"  >v</a></th>
-                                <th>Пол      <a v-on:click="sorting('gender')"    >^</a> / <a v-on:click="sorting('gender_desc')"    >v</a></th>
-                                <th>Действия </th>
+                            <tr>                               
+                                <th> Уник. ID </th>
+                                <th><a v-on:click="sorting('name')"> Имя </a></th>
+                                <th> Отчество </th>
+                                <th><a v-on:click="sorting('lastname')"> Фамилия </a></th>
+                                <th> Пол </th>
+                                <th> Действия </th>
                             </tr>
                         </thead>
 

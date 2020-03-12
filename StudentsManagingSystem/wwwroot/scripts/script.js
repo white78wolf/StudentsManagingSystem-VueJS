@@ -19,7 +19,8 @@ var app = new Vue({
             errors: [],
             loading: true,
             errored: false,            
-            filteredOutput: "всего"            
+            filteredOutput: "всего", 
+            sortingOrder: "lastname"
         }
     },
 
@@ -73,6 +74,9 @@ var app = new Vue({
         },
 
         sorting: function (param) {
+            param = param == this.sortingOrder ? param + "_desc" : param;
+            this.sortingOrder = param;
+
             axios
                 .get('api/sort/' + param)
                 .then(response => {
