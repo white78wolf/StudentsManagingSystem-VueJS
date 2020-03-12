@@ -20,7 +20,11 @@ i.icon-pencil:hover, i.icon-user-times:hover {
 }
 
 table thead tr th a {
-    color: #333;
+    color: #333;    
+}
+
+table thead th {
+    text-align: center;
 }
 
 table thead tr th a:hover {
