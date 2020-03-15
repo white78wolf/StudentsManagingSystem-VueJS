@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using SMS.Domain.Abstract;
 using SMS.Domain.Concrete;
 using SMS.Domain.Entities;
+using Services;
 
 namespace StudentsManagingSystem
 {
@@ -23,6 +24,7 @@ namespace StudentsManagingSystem
             services.AddDbContext<StudentsContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IRepository<Student>, StudentsRepository>();
             services.AddScoped<IUnitOfWork, EFUnitOfWork>();
+            services.AddSingleton<SortingService>();
             services.AddMvc();
         }
 

@@ -6,7 +6,7 @@ using System;
 
 namespace Services
 {
-    public static class SortingService
+    public class SortingService
     {
         public static IEnumerable<Student> SortBy(string parameter, IUnitOfWork uow)
         {
