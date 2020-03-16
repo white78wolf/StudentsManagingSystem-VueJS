@@ -25,6 +25,7 @@ namespace StudentsManagingSystem
             services.AddScoped<IRepository<Student>, StudentsRepository>();
             services.AddScoped<IUnitOfWork, EFUnitOfWork>();
             services.AddSingleton<SortingService>();
+            services.AddSingleton<UniqIdService>();
             services.AddMvc();
         }
 
