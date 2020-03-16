@@ -53,7 +53,7 @@ var app = new Vue({
                         this.form.name = response.data.name,
                         this.form.middleName = response.data.middleName == null ? "" : response.data.middleName, // the same
                         this.form.lastName = response.data.lastName,
-                        this.form.gender = response.data.gender
+                        this.form.gender = String(response.data.gender)
                 })
                 .catch(e => {
                     this.errors.push(e.response.data[""].toString());
@@ -112,7 +112,7 @@ var app = new Vue({
                     name:       this.form.name,
                     middleName: this.form.middleName,
                     lastName:   this.form.lastName,
-                    gender:     this.form.gender
+                    gender:     parseInt(this.form.gender)
                 })
                 .then(response => this.changeLine(response.data))
                 .catch(e => {
