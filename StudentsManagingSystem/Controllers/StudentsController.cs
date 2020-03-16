@@ -88,6 +88,9 @@ namespace StudentsManagingSystem.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            _uow.Students.Update(student);
+            _uow.Save();
+
             return Ok(student);
         }
 
