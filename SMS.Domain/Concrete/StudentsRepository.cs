@@ -28,7 +28,7 @@ namespace SMS.Domain.Concrete
 
         public IEnumerable<Student> Find(Func<Student, bool> predicate)
         {
-            return db.Students.Where(predicate).ToList();
+           return db.Students.Where(predicate).ToList();           
         }
 
         public void Create(Student student)
@@ -38,7 +38,16 @@ namespace SMS.Domain.Concrete
 
         public void Update(Student student)
         {
-            db.Entry(student).State = EntityState.Modified;
+            //db.Entry(student).State = EntityState.Modified;
+            Student dbEntry = db.Students.Find(student.Id);
+            if (dbEntry != null)
+            {
+                dbEntry.UniqId = student.UniqId;
+                dbEntry.Name = student.Name;
+                dbEntry.MiddleName = student.MiddleName;
+                dbEntry.LastName = student.LastName;
+                dbEntry.Gender = student.Gender;
+            }
         }        
 
         public void Delete(Student student)
