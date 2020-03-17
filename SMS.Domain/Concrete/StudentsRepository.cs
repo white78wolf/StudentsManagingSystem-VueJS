@@ -38,16 +38,8 @@ namespace SMS.Domain.Concrete
 
         public void Update(Student student)
         {
-            //db.Entry(student).State = EntityState.Modified;
-            Student dbEntry = db.Students.Find(student.Id);
-            if (dbEntry != null)
-            {
-                dbEntry.UniqId = student.UniqId;
-                dbEntry.Name = student.Name;
-                dbEntry.MiddleName = student.MiddleName;
-                dbEntry.LastName = student.LastName;
-                dbEntry.Gender = student.Gender;
-            }
+            Student dbEntry = db.Students.Find(student.Id);             
+            db.Entry(dbEntry).State = EntityState.Modified; 
         }        
 
         public void Delete(Student student)
