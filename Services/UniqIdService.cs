@@ -11,7 +11,7 @@ namespace Services
         {
             // method to check is uniqid existing already 
 
-            return IsUIDNullOrEmpty(student)
+            return IsUniqIdNullOrEmpty(student)
                 ? IsNullOrEmpty(repository.Find(x => x.UniqId == student.UniqId))
                     ? true 
                     : false
@@ -23,7 +23,7 @@ namespace Services
             // method to check has uniqid changed and then to check its existence in db 
 
             return repository.Get(student.Id).UniqId != student.UniqId
-                && !IsUIDNullOrEmpty(student)
+                && !IsUniqIdNullOrEmpty(student)
                 ? IsNullOrEmpty(repository.Find(x => x.UniqId == student.UniqId))
                     ? true 
                     : false
@@ -35,7 +35,7 @@ namespace Services
             return items == null || !items.Any();
         }
 
-        public static bool IsUIDNullOrEmpty(Student student)
+        public static bool IsUniqIdNullOrEmpty(Student student)
         {
             return student.UniqId == null || student.UniqId == "";
         }
