@@ -49,11 +49,11 @@ var app = new Vue({
                 .get('api/students/' + id)
                 .then(response => {
                     this.form.id = response.data.id,
-                        this.form.uniqId = response.data.uniqId == null ? "" : response.data.uniqId, // it can be null because of table's field property
-                        this.form.name = response.data.name,
-                        this.form.middleName = response.data.middleName == null ? "" : response.data.middleName, // the same
-                        this.form.lastName = response.data.lastName,
-                        this.form.gender = String(response.data.gender)
+                    this.form.uniqId = response.data.uniqId == null ? "" : response.data.uniqId, // it can be null because of table's field property
+                    this.form.name = response.data.name,
+                    this.form.middleName = response.data.middleName == null ? "" : response.data.middleName, // the same
+                    this.form.lastName = response.data.lastName,
+                    this.form.gender = String(response.data.gender)
                 })
                 .catch(e => {
                     this.errors.push(e.response.data[""].toString());
@@ -175,12 +175,12 @@ var app = new Vue({
 
         reset: function () {
             this.form.id = 0,
-                this.form.uniqId     = "",
-                this.form.name       = "",
-                this.form.middleName = "",
-                this.form.lastName   = "",
-                this.form.gender     = "",
-                this.errors = [];
+            this.form.uniqId     = "",
+            this.form.name       = "",
+            this.form.middleName = "",
+            this.form.lastName   = "",
+            this.form.gender     = "",
+            this.errors = [];
         }
     },
     // one of lifecycle's hooks - when app is mounting to index.html - to query all students' list
