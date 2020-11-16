@@ -16,5 +16,7 @@ namespace SMS.Domain.Concrete
     }
 }
 
-// It's necessary to comment the line with EnsureCreated method when migrating with console commands
-// ...or to uncomment Database.Migrate() during rebuilding the project after model's changed
+// Comment the line with EnsureCreated method when migrating with console commands
+// and uncomment Database.Migrate().
+// After model's changed, rebuild the project with commented Database.Migrate() 
+// and uncommented EnsureCreated().
